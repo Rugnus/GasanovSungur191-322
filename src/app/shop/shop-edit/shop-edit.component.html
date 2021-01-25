@@ -1,1 +1,21 @@
-<p>shop-edit works!</p>
+<div class="container-fluid">
+    <form [formGroup]="productForm">
+        <div class="form-group">
+            <label for="username">Название товаа</label>
+            <input type="text" id="username" class="form-control" formControlName="name" />
+        </div>
+        <div class="form-group">
+            <label for="usersurname">Количество</label>
+            <input type="number" id="usersurname" class="form-control" formControlName="count" />
+        </div>
+        <div class="form-group">
+            <select class="custom-select" formControlName="status">  
+                <option [ngValue]="false" ngDefaultControl>Не куплено</option>
+                <option [ngValue]="true">Куплено</option>
+
+            </select>
+        </div>
+        <button class="btn btn-primary mr-4" [disabled]="productForm.invalid" (click)="onSave()">Сохранить</button>
+        <button class="btn btn-danger" *ngIf="id != null" (click)="onDelete()">Удалить</button>
+    </form>
+</div>

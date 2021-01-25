@@ -12,7 +12,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let product of products">
+          <tr *ngFor="let product of products" [ngClass]="!product.status ? 'green' : 'base'">
             <th scope="row">{{ product.id }}</th>
             <td> {{ product.name }} </td>
             <td> {{ product.count }} </td>
@@ -20,8 +20,8 @@
             <td *ngIf="product.status == true"> Куплено </td>
 
 
-            <td class="text-right">
-                <button class="btn btn-outline-success" (click)="!product.status">Купить</button>
+            <td class="text-right" *ngIf="!product.status">
+                <button class="btn btn-outline-success" (click)="product.status = true">Купить</button>
             </td>
             <td class="text-right">
                 <button class="btn btn-warning" (click)="onLinkProfile(product.id)">Редактировать</button>

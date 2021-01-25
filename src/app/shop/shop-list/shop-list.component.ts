@@ -12,6 +12,9 @@ export class ShopListComponent implements OnInit {
 
 
   products: Product[] = [];
+  id: number;
+  product: Product;
+  status: boolean;
 
 
   constructor(private productService: ProductService, private router: Router, private activatedRouter: ActivatedRoute) {
@@ -32,8 +35,18 @@ export class ShopListComponent implements OnInit {
     }
   }
 
+  async onBuyProduct(id) {
+    this.product.status = true;
+    try {
+      await this.productService.putOne(id, this.product);
+    } catch (error) {
+      console.log(error);
+    }
+    this.getData();
+  }
+
   onAddProfile() {
-    this.router.navigate([this.router.url, 'profile'])
+    this.router.navigate([this.router.url, 'edit'])
   }
 
   onLinkProfile(id: number) {

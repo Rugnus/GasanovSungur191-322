@@ -32,6 +32,10 @@ export class BaseHttp {
         return this.get(`${this.path}`).toPromise();
     }
 
+    public getUp(url: string): Promise<any[]> {
+        return this.get(this.getUrl(url)).toPromise();
+    }
+
     public getOneById(id: number): Promise<any> {
         return this.get(`${this.path}/${id}`).toPromise();
     }

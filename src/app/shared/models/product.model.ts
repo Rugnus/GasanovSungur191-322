@@ -5,3 +5,7 @@ export interface Product {
     edit: boolean;
     id?: number;
 }
+
+let stat: Product = {} as any;
+
+stat.status = false;

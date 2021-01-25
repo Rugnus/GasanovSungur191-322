@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <table class="table mt-2">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Название</th>
+            <th scope="col">Количество</th>
+            <th scope="col">Статус</th>
+            <th scope="col" class="text-right">
+                <button class="btn btn-primary" (click)="onAddProfile()">Добавить товар</button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <th scope="row">{{ product.id }}</th>
+            <td> {{ product.name }} </td>
+            <td> {{ product.count }} </td>
+            <td *ngIf="product.status == false"> Не куплено </td>
+            <td *ngIf="product.status == true"> Куплено </td>
+
+
+            <td class="text-right">
+                <button class="btn btn-outline-success" (click)="!product.status">Купить</button>
+            </td>
+            <td class="text-right">
+                <button class="btn btn-warning" (click)="onLinkProfile(product.id)">Редактировать</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

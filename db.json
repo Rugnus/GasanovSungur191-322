@@ -5,6 +5,18 @@
       "name": "MacbookPro 16",
       "count": 3,
       "status": false
+    },
+    {
+      "id": 2,
+      "name": "MacbookPro 13",
+      "count": 2,
+      "status": false
+    },
+    {
+      "id": 3,
+      "name": "HP Pavilion",
+      "count": 1,
+      "status": false
     }
   ]
 }

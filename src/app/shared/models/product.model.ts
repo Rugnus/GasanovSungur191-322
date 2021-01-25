@@ -1,4 +1,4 @@
-export interface Muser {
+export interface Product {
     name: String; 
     count: Number;
     status: boolean;

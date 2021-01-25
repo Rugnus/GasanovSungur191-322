@@ -8,9 +8,14 @@ const routes: Routes = [
     path: '',
     component: InfoComponent 
   },
+  // {
+  //   path: 'shop',
+  //   component: ShopComponent
+  // }
   {
     path: 'shop',
-    component: ShopComponent
+    loadChildren: () => 
+    import('./shop/shop.module').then(m => m.ShopModule)
   }
 ];
 

@@ -5,10 +5,12 @@ import { ShopRoutingModule } from './shop-routing.module';
 import { ShopComponent } from './shop.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { ShopEditComponent } from './shop-edit/shop-edit.component';
+import { FilterbystatusPipe } from './pipes/filterbystatus.pipe';
+import { FilternamePipe } from './pipes/filtername.pipe';
 
 
 @NgModule({
-  declarations: [ShopComponent, ShopEditComponent, ShopListComponent],
+  declarations: [ShopComponent, ShopEditComponent, ShopListComponent, FilterbystatusPipe, FilternamePipe],
   imports: [
     CommonModule,
     ShopRoutingModule,

@@ -68,10 +68,11 @@ export class ShopEditComponent implements OnInit {
       } catch (error) {
         console.log(error);
       }
+      this.router.navigate(['/shop']);
     } else {
       try {
         let res = await this.productService.postOne(this.productForm.value);
-        this.router.navigate([this.router.url, res.id]);
+        // this.router.navigate([this.router.url, res.id]);
         this.getData();
       } catch (error) {
         console.log(error);

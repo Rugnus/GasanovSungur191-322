@@ -1,32 +1,33 @@
 <div class="container-fluid">
-    <table class="table mt-2">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Название</th>
-            <th scope="col">Количество</th>
-            <th scope="col">Статус</th>
-            <th scope="col" class="text-right">
-                <button class="btn btn-primary" (click)="onAddProfile()">Добавить товар</button>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let product of products" [ngClass]="!product.status ? 'green' : 'base'">
-            <th scope="row">{{ product.id }}</th>
-            <td> {{ product.name }} </td>
-            <td> {{ product.count }} </td>
-            <td *ngIf="product.status == false"> Не куплено </td>
-            <td *ngIf="product.status == true"> Куплено </td>
-
-
-            <td class="text-right" *ngIf="!product.status">
-                <button class="btn btn-outline-success" (click)="product.status = true">Купить</button>
-            </td>
-            <td class="text-right">
-                <button class="btn btn-warning" (click)="onLinkProfile(product.id)">Редактировать</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="table-responsive">
+        <table class="table mt-2 table-md" style="font-size: 15px;">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Название</th>
+                <th scope="col">Количество</th>
+                <th scope="col">Статус</th>
+                <th scope="col" class="text-right">
+                    <button class="btn btn-primary" (click)="onAddProfile()">Добавить товар</button>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of products | filterbystatus" [ngClass]="!product.status ? 'green' : 'base'" >
+                <th scope="row">{{ product.id }}</th>
+                <td > {{ product.name }} </td>
+                <td> {{ product.count }} </td>
+                <td *ngIf="product.status == false"> Не куплено </td>
+                <td *ngIf="product.status == true"> Куплено </td>
+    
+                <td class="" *ngIf="!product.status">
+                    <button class="btn btn-danger" (click)="onBuyProduct(product.id, product.name, product.count)">Купить</button>
+                </td>
+                <td class="">
+                    <button class="btn btn-warning" (click)="onLinkProfile(product.id)">Редактировать</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
 </div>
